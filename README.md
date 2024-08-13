@@ -4,8 +4,8 @@
     * npm install express multer unzipper puppeteer cors morgan 
 
 2. init backend and frontend ports at (by default backend port - 3000, frontend - 3001):
-    * ./backend.js (backendPort and frontendPort  | 12-13 lines)
-    * ./frontend.js (backendPort and frontendPort  | 8-9 lines)
+    * ./backend.js (backendPort and frontendPort  | 11-12 lines)
+    * ./frontend.js (backendPort and frontendPort  | 7-8 lines)
     * ./public/index.html (at fetch request  | 21 line)
 
 3. run both servers:
