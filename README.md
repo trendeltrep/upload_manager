@@ -9,7 +9,7 @@
     * ./public/index.html (at fetch request  | 21 line)
 
 3. run both servers:
-    * node .//backend.js
+    * node ./backend.js
     * node ./frontend.js
 
 4. open frontend website -> click choose file -> choose .zip file from /testUpload folder -> click upload
