@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Screenshot</title>
+</head>
+<body>
+    <h1>Upload your website archive</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="archive" accept=".zip" required>
+        <button type="submit">Upload</button>
+    </form>
+    <h2>Screenshot of the homepage:</h2>
+    <img id="screenshot" alt="Screenshot will appear here" style="max-width:100%;">
+
+    <script>
+        document.getElementById('uploadForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const response = await fetch('http://localhost:3000/upload', {
+                method: 'POST',
+                body: formData
+            });
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            document.getElementById('screenshot').src = url;
+        };
+    </script>
+</body>
+</html>
