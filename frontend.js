@@ -17,6 +17,7 @@ app.use(function(req, res, next) {
 });
 
 var logger = require('morgan');
+
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
