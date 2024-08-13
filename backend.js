@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
 var cors = require('cors')
@@ -8,9 +9,12 @@ const puppeteer = require('puppeteer');
 const app = express();
 app.use(cors());
 
+const backendPort = 3000;
+const frontendPort = 3001;
+
 //enabling cors
 app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
+    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${frontendPort}`);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Allow-Credentials', true);
@@ -54,7 +58,6 @@ app.post('/upload', upload.single('archive'), async (req, res) => {
     res.sendFile(path.join(__dirname, 'screenshot.png'));
 });
 
-port = 3000
-app.listen(port, () => {
-    console.log(`Backend started on http://localhost:${port}`);
+app.listen(backendPort, () => {
+    console.log(`Backend started on http://localhost:${backendPort}`);
 });
